@@ -1,5 +1,7 @@
 #! /bin/bash
 
+# This MUST be run while the active directory is /sites/default
+
 echo "Enable the nodequeue module."
 drush en -y nodequeue
 echo
@@ -40,6 +42,10 @@ echo
 
 echo "Revert some views to what is in code. This updates them for d7."
 drush vr catalog_featured catalog_most_viewed admin_content_comment admin_content_node admin_content front_catalog front_news mini_grants nodequeue_2 catalog_latest_grid admin_content_taxonomy admin_user_user
+echo
+
+echo "Clear all drupal cache."
+drush cc all
 echo
 
 LOGIN=`drush uli -l nisenet`
