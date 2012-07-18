@@ -1,26 +1,35 @@
 #! /bin/bash
-cd ~/Sites/nisenet_d6/sites/default
+
+TODAY=`date "+%Y%m%d"`-`date +%H%M%S`
+echo "Today is $TODAY if you were wondering..."
 echo
+
+echo "Switch to /sites/default directory."
+cd ../../default
+echo
+
 echo "drop database"
 drush sql-drop -y
 echo
+
 echo "Move modules dir to migrate dir"
 #mv ../all/modules ../all/migrate
 echo
+
 echo "Move modules dir to not-modules dir"
 #mv ../all/not-modules/ ../all/modules
+echo
 
-echo "move settings.php"
+echo "Copy d6 settings to settings.php"
 cp settings-d6.php settings.php
 echo
 
-echo "checkout master"
+echo "Checkout master."
 git checkout master
-echo "import d6 database"
-drush sqlc < ~/Downloads/site-db.sql
+echo
 
-TODAY=`date "+%Y%m%d"`-`date +%H%M%S`
-echo "Today is $TODAY"
+echo "Import d6 database."
+drush sqlc < site-db.sql
 echo
 
 LOGIN=`drush uli -l nisenet`
