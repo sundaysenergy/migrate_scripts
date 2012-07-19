@@ -20,7 +20,12 @@ echo
 
 echo "Enable the NISE Net Helper module."
 echo
-drush en -y nisenet_helper nisenet_dashboard
+drush en -y nisenet_helper nisenet_dashboard nisenet_img_styles nisenet_profile2
+echo
+
+echo "Revert some features."
+echo
+drush features-revert nisenet_profile2 nisenet_img_styles -y
 echo
 
 echo "Set the default theme back to NISE Net."
