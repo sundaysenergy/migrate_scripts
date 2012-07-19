@@ -12,7 +12,7 @@ echo
 drush sql-drop -y
 echo
 
-echo "Import d6 database."
+echo "Import d7 database at point where fields were converted."
 echo
 drush sqlc < site-db-part1.sql
 echo

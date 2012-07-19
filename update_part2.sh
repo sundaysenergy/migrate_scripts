@@ -2,20 +2,22 @@
 
 # This MUST be run while the active directory is /sites/default
 
+echo "Drupal can now see all the contributed modules"
+echo
+
 echo "Enable the nodequeue module."
 echo
 drush en -y nodequeue
 echo
 
-echo "Drupal can now see all the contributed modules"
-echo
-
-echo "Run update.php with verbose debug information."
+echo "Run update.php for all non-core modules."
 echo
 drush updb -y
 echo
 
-echo "This would be a good point to take a db snapshot."
+echo "Enable the search related modules."
+echo
+drush en -y current_search search_api_db search_api_facetapi search_api_views
 echo
 
 echo "Enable the NISE Net Helper module."
@@ -23,9 +25,17 @@ echo
 drush en -y nisenet_helper nisenet_dashboard nisenet_img_styles nisenet_profile2
 echo
 
+echo "Run update.php for nisenet_helper now that search modules are on."
+echo
+drush updb -y
+echo
+
+echo "This would be a good point to take a db snapshot."
+echo
+
 echo "Revert some features."
 echo
-drush features-revert nisenet_profile2 nisenet_img_styles -y
+drush features-revert -y nisenet_profile2 nisenet_img_styles
 echo
 
 echo "Set the default theme back to NISE Net."
@@ -63,10 +73,29 @@ echo
 drush cc all
 echo
 
+echo "Run cron."
+echo
+drush cron
+echo
+
+echo "Enable Migrate module for profile conversion."
+echo
+drush en nisenet_migrate
+
+echo "Migrate profiles to profile2 entities."
+echo
+drush migrate-import NisenetContentProfile2Profile
+echo
+
 LOGIN=`drush uli`
 echo "Login link:"
 echo "$LOGIN"
 echo
 
-echo "You must now manually revert contexts."
+echo "* * * The rest must be done manually. * * *"
+echo "* Visit media update /admin/config/media/rebuild_types"
+echo "* You must now manually revert contexts."
+echo "/admin/structure/context/list/community/revert"
+echo "/admin/structure/context/list/front_page_blocks/revert"
+echo "/admin/structure/context/list/vizlab_gallery_page_blocks/revert"
 echo
