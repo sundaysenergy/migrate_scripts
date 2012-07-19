@@ -15,9 +15,9 @@ echo
 drush updb -y
 echo
 
-echo "Enable the search related modules."
+echo "Enable the search related feature and related modules."
 echo
-drush en -y current_search search_api_db search_api_facetapi search_api_views
+drush en -y nisenet_search
 echo
 
 echo "Enable the NISE Net Helper module."
@@ -27,7 +27,7 @@ echo
 
 echo "Run update.php for nisenet_helper now that search modules are on."
 echo
-drush updb -y
+#drush updb -y
 echo
 
 echo "This would be a good point to take a db snapshot."
@@ -35,7 +35,7 @@ echo
 
 echo "Revert some features."
 echo
-drush features-revert -y nisenet_profile2 nisenet_img_styles
+drush features-revert -y nisenet_search nisenet_img_styles nisenet_profile2
 echo
 
 echo "Set the default theme back to NISE Net."
@@ -68,11 +68,6 @@ echo
 drush vr catalog_featured catalog_most_viewed admin_content_comment admin_content_node admin_content front_catalog front_news mini_grants nodequeue_2 catalog_latest_grid admin_content_taxonomy admin_user_user
 echo
 
-echo "Clear all drupal cache."
-echo
-drush cc all
-echo
-
 echo "Run cron."
 echo
 drush cron
@@ -80,7 +75,13 @@ echo
 
 echo "Enable Migrate module for profile conversion."
 echo
-drush en nisenet_migrate
+drush en -y nisenet_migrate
+echo
+
+echo "Clear all drupal cache."
+echo
+drush cc all
+echo
 
 echo "Migrate profiles to profile2 entities."
 echo
