@@ -8,10 +8,12 @@ echo "Today is $TODAY if you were wondering..."
 echo
 
 echo "drop database"
+echo
 drush sql-drop -y
 echo
 
 echo "Import d6 database."
+echo
 drush sqlc < site-db-part1.sql
 echo
 
