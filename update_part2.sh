@@ -15,27 +15,19 @@ echo
 drush updb -y
 echo
 
-echo "Enable the search related feature and related modules."
+echo "Saving a db snapshot called site-db-part2a.sql."
 echo
-drush en -y nisenet_search
-echo
-
-echo "Enable the NISE Net Helper module."
-echo
-drush en -y nisenet_helper nisenet_dashboard nisenet_img_styles nisenet_profile2
+#drush sql-dump --skip-tables-key=common > site-db-part2a.sql
 echo
 
-echo "Run update.php for nisenet_helper now that search modules are on."
+echo "Enable the NISE Net Helper and related modules."
 echo
-#drush updb -y
-echo
-
-echo "This would be a good point to take a db snapshot."
+drush en -y nisenet_search nisenet_helper nisenet_dashboard nisenet_img_styles nisenet_profile2 nisenet_core
 echo
 
 echo "Revert some features."
 echo
-drush features-revert -y nisenet_search nisenet_img_styles nisenet_profile2
+drush features-revert -y nisenet_search nisenet_img_styles nisenet_profile2 nisenet_core
 echo
 
 echo "Set the default theme back to NISE Net."
@@ -99,4 +91,7 @@ echo "* You must now manually revert contexts."
 echo "/admin/structure/context/list/community/revert"
 echo "/admin/structure/context/list/front_page_blocks/revert"
 echo "/admin/structure/context/list/vizlab_gallery_page_blocks/revert"
+echo
+
+echo "Done with part 2."
 echo
