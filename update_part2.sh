@@ -22,12 +22,12 @@ echo
 
 echo "Enable the NISE Net Helper and related modules."
 echo
-drush en -y nisenet_search nisenet_helper nisenet_dashboard nisenet_img_styles nisenet_profile2 nisenet_core nisenet_dashboard
+drush en -y nisenet_search nisenet_helper nisenet_dashboard nisenet_img_styles nisenet_profile2 nisenet_core nisenet_dashboard nisenet_events
 echo
 
 echo "Revert some features."
 echo
-drush features-revert -y nisenet_search nisenet_img_styles nisenet_profile2 nisenet_core nisenet_dashboard
+drush features-revert -y nisenet_search nisenet_img_styles nisenet_profile2 nisenet_core nisenet_dashboard nisenet_events
 echo
 
 echo "Set the default theme back to NISE Net."
@@ -42,7 +42,8 @@ echo
 
 echo "Enable other contributed modules"
 echo
-drush en -y context_menu_block badges content_dashboard filefield_paths emfield media_vimeo file_force globalredirect lightbox2 site_map transliteration print print_mail rules rules_admin captcha googleanalytics flowplayer tagadelic beautytips beautytips_ui ckeditor compact_forms results_filter views_data_export xmlsitemap xmlsitemap_engines xmlsitemap_menu
+drush en -y beautytips beautytips_ui ckeditor compact_forms context_menu_block content_dashboard filefield_paths emfield media_vimeo file_force globalredirect lightbox2 print print_mail captcha googleanalytics flowplayer tagadelic
+drush en -y results_filter rules rules_admin site_map transliteration views_data_export xmlsitemap xmlsitemap_engines xmlsitemap_menu
 echo
 
 echo "Take site back online"
