@@ -2,15 +2,15 @@
 
 # This MUST be run while the active directory is /sites/default
 
-echo "Drupal can now see all the contributed modules"
+echo "Drupal can now see all the contributed modules."
 echo
 
-echo "Enable the nodequeue module."
+echo "Enabling the nodequeue module first."
 echo
 drush en -y nodequeue
 echo
 
-echo "Run update.php for all non-core modules."
+echo "Running update.php for all non-core modules."
 echo
 drush updb -y
 echo
@@ -22,12 +22,7 @@ echo
 
 echo "Enable the NISE Net Helper and related modules."
 echo
-drush en -y nisenet_search nisenet_helper nisenet_dashboard nisenet_img_styles nisenet_profile2 nisenet_core nisenet_dashboard nisenet_events
-echo
-
-echo "Revert some features."
-echo
-drush features-revert -y nisenet_search nisenet_img_styles nisenet_profile2 nisenet_core nisenet_dashboard nisenet_events
+drush en -y nisenet_search nisenet_helper image_get_sizes nisenet_dashboard nisenet_img_styles nisenet_profile2 nisenet_core nisenet_dashboard nisenet_events
 echo
 
 echo "Set the default theme back to NISE Net."
@@ -46,6 +41,16 @@ drush en -y beautytips beautytips_ui ckeditor compact_forms context_menu_block c
 drush en -y results_filter rules rules_admin site_map transliteration views_data_export xmlsitemap xmlsitemap_engines xmlsitemap_menu
 echo
 
+echo "Revert some views to what is in code. This updates them for d7."
+echo
+drush vr catalog_featured catalog_most_viewed admin_content_comment admin_content_node admin_content front_catalog front_news mini_grants nodequeue_2 catalog_latest_grid admin_content_taxonomy admin_user_user
+echo
+
+echo "Revert some features."
+echo
+drush features-revert -y nisenet_search nisenet_img_styles nisenet_profile2 nisenet_core nisenet_dashboard nisenet_events
+echo
+
 echo "Take site back online"
 echo
 drush vset --always-set site_offline 0
@@ -54,11 +59,6 @@ echo
 echo "Clear all drupal cache."
 echo
 drush cc all
-echo
-
-echo "Revert some views to what is in code. This updates them for d7."
-echo
-drush vr catalog_featured catalog_most_viewed admin_content_comment admin_content_node admin_content front_catalog front_news mini_grants nodequeue_2 catalog_latest_grid admin_content_taxonomy admin_user_user
 echo
 
 echo "Run cron."
