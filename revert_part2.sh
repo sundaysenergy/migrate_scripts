@@ -7,6 +7,8 @@ TODAY=`date "+%Y%m%d"`-`date +%H%M%S`
 echo "Today is $TODAY if you were wondering..."
 echo
 
+#drush sql-dump --skip-tables-key=common > $TODAY.sql
+
 echo "drop database"
 echo
 drush sql-drop -y
