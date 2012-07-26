@@ -22,7 +22,7 @@ echo
 
 echo "Enabling the NISE Net Helper and related modules."
 echo
-drush en -y nisenet_search
+drush en -y nisenet_focused_search nisenet_search
 echo
 drush en -y nisenet_helper image_legacy nisenet_dashboard nisenet_img_styles nisenet_profile2 nisenet_core nisenet_dashboard nisenet_events
 echo

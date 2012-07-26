@@ -8,6 +8,10 @@ echo "Change into sites/default directory."
 cd ../../default
 echo
 
+echo "Saving a db snapshot called site-db-d6.sql."
+drush sql-dump --skip-tables-key=common > site-db-d6.sql
+echo
+
 echo "Create enabled.txt file with enabled modules."
 drush pml --no-core --type=module --status=enabled --pipe > enabled.txt
 echo
