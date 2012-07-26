@@ -19,6 +19,13 @@ echo
 drush sqlc < site-db-part1.sql
 echo
 
+echo "Git pull."
+git pull
+cd ../../
+git submodule update
+cd sites/default
+echo
+
 LOGIN=`drush uli`
 echo "Login link:"
 echo "$LOGIN"
