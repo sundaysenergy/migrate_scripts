@@ -8,8 +8,8 @@ echo "Change into sites/default directory."
 cd ../../default
 echo
 
-echo "Saving a db snapshot called site-db-d6.sql."
-drush sql-dump --skip-tables-key=common > site-db-d6.sql
+#echo "Saving a db snapshot called site-db-d6.sql."
+#drush sql-dump --skip-tables-key=common > site-db-d6.sql
 echo
 
 echo "Create enabled.txt file with enabled modules."
@@ -20,12 +20,12 @@ echo "Put site into maintenance mode."
 drush vset --always-set site_offline 1
 echo
 
-echo "Disable all the enabled modules."
-xargs drush -y dis < enabled.txt
+echo "Disable the PHP input format module."
+drush -y dis php vr
 echo
 
-echo "Disable the PHP input format module."
-drush dis php -y
+echo "Disable all the enabled modules."
+xargs drush -y dis < enabled.txt
 echo
 
 echo "Set the default theme to garland."
@@ -33,6 +33,7 @@ drush vset theme_default garland
 echo
 
 echo "Switch to the drupal7 branch."
+#sudo su gituser -c "git checkout drupal7"
 git checkout drupal7
 echo
 
