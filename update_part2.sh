@@ -22,9 +22,9 @@ echo
 
 echo "Enabling the NISE Net Helper and related modules."
 echo
-drush en -y nisenet_helper
+drush en -y nisenet_search
 echo
-drush en -y nisenet_search image_legacy nisenet_dashboard nisenet_img_styles nisenet_profile2 nisenet_core nisenet_dashboard nisenet_events
+drush en -y nisenet_helper image_legacy nisenet_dashboard nisenet_img_styles nisenet_profile2 nisenet_core nisenet_dashboard nisenet_events
 echo
 
 echo "Setting the default theme back to NISE Net."
@@ -47,6 +47,11 @@ echo "Reverting all custom views to what is in nisenet_helper code."
 echo "This updates them for d7."
 echo
 drush vr catalog_featured catalog_most_viewed admin_content_comment admin_content_node admin_content front_catalog front_news mini_grants nodequeue_2 catalog_latest_grid admin_content_taxonomy admin_user_user
+echo
+
+echo "Clearing all drupal cache before reverting features."
+echo
+drush cc all
 echo
 
 echo "Reverting all custom features."
