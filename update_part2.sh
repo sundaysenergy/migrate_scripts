@@ -115,6 +115,7 @@ echo
 echo
 echo "Make sure to disable conversion modules when all done" 
 echo "drush dis -y field_convert image_legacy AND ANY OTHERS"
+echo "Also - check the additional manual steps at https://gortonstudios.unfuddle.com/a#/projects/112467/notebooks/53120/pages/191892/latest"
 echo
 
 
