@@ -22,7 +22,9 @@ echo
 
 echo "Enabling the NISE Net Helper and related modules."
 echo
-drush en -y nisenet_search nisenet_helper image_legacy nisenet_dashboard nisenet_img_styles nisenet_profile2 nisenet_core nisenet_dashboard nisenet_events
+drush en -y nisenet_helper
+echo
+drush en -y nisenet_search image_legacy nisenet_dashboard nisenet_img_styles nisenet_profile2 nisenet_core nisenet_dashboard nisenet_events
 echo
 
 echo "Setting the default theme back to NISE Net."
