@@ -86,6 +86,12 @@ echo
 drush migrate-import NisenetContentProfile2Profile
 echo
 
+echo "Migrate img_assist content filters to inline <img> tags"
+echo
+php ../all/migrate_scripts/img_assist_convert.php
+#drush php-script img_assist_convert --script-path=../all/migrate_scripts
+echo
+
 echo "Taking the site back online"
 echo
 drush vset --always-set site_offline 0
@@ -97,6 +103,7 @@ echo "$LOGIN"
 echo
 
 echo "* * * The rest must be done manually. * * *"
+echo "* Convert image.module Image nodes at /admin/content/field_convert"
 echo "* Visit media update /admin/config/media/rebuild_types"
 echo "* You must now manually revert contexts."
 echo "/admin/structure/context/list/community/revert"
@@ -104,5 +111,14 @@ echo "/admin/structure/context/list/front_page_blocks/revert"
 echo "/admin/structure/context/list/vizlab_gallery_page_blocks/revert"
 echo
 
+
+echo
+echo "Make sure to disable conversion modules when all done" 
+echo "drush dis -y field_convert image_legacy AND ANY OTHERS"
+echo
+
+
+
 echo "Done with part 2."
 echo
+
