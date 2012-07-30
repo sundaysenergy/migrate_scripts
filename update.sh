@@ -6,65 +6,21 @@ TODAY=`date "+%Y%m%d"`-`date +%H%M%S`
 echo "FYI Today is $TODAY"
 echo
 
-echo "Change into sites/default directory."
-cd ../../default
-echo
-
 #echo "Saving a db snapshot called site-db-d6.sql."
 #drush sql-dump --skip-tables-key=common > site-db-d6.sql
 echo
 
-echo "Begin Part 1A - Update core database tables."
+echo "Change into sites/default directory."
+cd ../../default
 echo
 
-echo "Create enabled.txt file with enabled modules."
-drush pml --no-core --type=module --status=enabled --pipe > enabled.txt
+echo "Beginning Part 1A."
 echo
 
-echo "Put site into maintenance mode."
-drush vset --always-set site_offline 1
+echo "Run update_part1a.sh"
+../all/migrate_scripts/update_part1a.sh
 echo
 
-echo "Disabling Vertical Response and the PHP input format module."
-drush -y dis cookie_cache_bypass php vr
-echo
-
-echo "Disable all the enabled modules."
-xargs drush -y dis < enabled.txt
-echo
-
-echo "Set the default theme to garland."
-drush vset theme_default garland
-echo
-
-echo "Switch to the drupal7 branch."
-#sudo su gituser -c "git checkout drupal7"
-git checkout drupal7
-echo
-
-echo "Use sites/default/settings-d7.php for d7 settings.php."
-# sudo cp settings-d7.php settings.php
-cp settings-d7.php settings.php
-echo
-
-echo "Rename sites/all/modules dir to sites/all/not-modules."
-# sudo mv ../all/modules/ ../all/not-modules
-mv ../all/modules/ ../all/not-modules
-echo
-
-echo "No contributed modules are accessible by drupal at this point."
-echo
-
-echo "This next command will conclude Part 1A."
-echo
-
-echo "Run update.php with verbose debug information printed."
-drush updb -dvy
-echo
-
-echo "Core database tables have been migrated."
-echo "[Part 1A Done]"
-echo
 
 #echo "Saving a db snapshot called site-db-part1a.sql."
 #drush sql-dump --skip-tables-key=common > site-db-part1a.sql
@@ -73,7 +29,7 @@ echo
 echo "Beginning Part 1B."
 echo
 
-echo "Run update_part2.sh"
+echo "Run update_part1b.sh"
 ../all/migrate_scripts/update_part1b.sh
 echo
 
