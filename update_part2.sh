@@ -37,10 +37,11 @@ echo
 drush en -y admin_menu admin_menu_toolbar admin_views backup_migrate block_class contextual views_ui views_bulk_operations context_ui logintoboggan mollom module_filter
 echo
 
-echo "Enabling other contributed modules in two batches."
+echo "Enabling other contributed modules in three batches."
 echo
-drush en -y beautytips beautytips_ui ckeditor compact_forms context_menu_block content_dashboard filefield_paths emfield media_vimeo file_force globalredirect lightbox2 print print_mail captcha googleanalytics flowplayer tagadelic
-drush en -y results_filter rules rules_admin site_map transliteration views_data_export xmlsitemap xmlsitemap_engines xmlsitemap_menu
+drush en -y beautytips beautytips_ui ckeditor captcha googleanalytics flowplayer compact_forms context_menu_block content_dashboard emfield
+drush en -y filefield_paths media_vimeo file_force globalredirect lightbox2 pathauto print print_mail
+drush en -y tagadelic results_filter rules rules_admin site_map transliteration views_data_export webform xmlsitemap xmlsitemap_engines xmlsitemap_menu
 echo
 
 echo "Reverting all custom views to what is in nisenet_helper code."
@@ -113,7 +114,7 @@ echo
 
 
 echo
-echo "Make sure to disable conversion modules when all done" 
+echo "Make sure to disable conversion modules when all done"
 echo "drush dis -y field_convert image_legacy AND ANY OTHERS"
 echo "Also - check the additional manual steps at https://gortonstudios.unfuddle.com/a#/projects/112467/notebooks/53120/pages/191892/latest"
 echo
