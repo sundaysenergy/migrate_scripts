@@ -12,13 +12,13 @@ echo "drop database"
 drush sql-drop -y
 echo
 
-echo "Move modules dir to migrate dir"
-mv ../all/modules ../all/migrate
-echo
-
 echo "Move modules dir to not-modules dir"
 #sudo mv ../all/not-modules/ ../all/modules
 mv ../all/not-modules/ ../all/modules
+echo
+
+echo "Move modules dir to migrate dir"
+mv ../all/modules ../all/migrate
 echo
 
 echo "Copy d6 settings to settings.php"

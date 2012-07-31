@@ -44,7 +44,7 @@ echo
 echo "This next command will conclude Part 1A."
 echo
 
-echo "Run update.php with verbose debug information printed."
+echo "Running update.php with verbose debug information printed."
 drush updb -dvy
 echo
 
