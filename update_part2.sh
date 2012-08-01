@@ -112,6 +112,7 @@ echo "/admin/structure/context/list/front_page_blocks/revert"
 echo "/admin/structure/context/list/vizlab_gallery_page_blocks/revert"
 echo
 
+echo "* Manually set blog teaser display settings."
 echo "Make sure to disable conversion modules when all done"
 echo "drush dis -y field_convert image_legacy migrate content_dashboard AND ANY OTHERS"
 echo "Also - check the additional manual steps at https://gortonstudios.unfuddle.com/a#/projects/112467/notebooks/53120/pages/191892/latest"
