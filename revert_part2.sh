@@ -15,15 +15,16 @@ drush sql-drop -y
 echo
 
 echo "Import d7 database at point where fields were converted."
+echo "sites/default/site-db-part1b.sql"
 echo
-drush sqlc < site-db-part1.sql
+drush sqlc < site-db-part1b.sql
 echo
 
-echo "Git pull."
-git pull
-cd ../../
-git submodule update
-cd sites/default
+#echo "Git pull."
+#git pull
+#cd ../../
+#git submodule update
+#cd sites/default
 echo
 
 LOGIN=`drush uli`

@@ -84,12 +84,12 @@ echo "Migrating profiles to profile2 entities."
 echo
 echo "This can take several (5+) minutes."
 echo
-drush migrate-import NisenetContentProfile2Profile
+#drush migrate-import NisenetContentProfile2Profile
 echo
 
 echo "Migrate img_assist content filters to inline <img> tags"
 echo
-php ../all/migrate_scripts/img_assist_convert.php
+#php ../all/migrate_scripts/img_assist_convert.php
 #drush php-script img_assist_convert --script-path=../all/migrate_scripts
 echo
 
@@ -112,15 +112,15 @@ echo "/admin/structure/context/list/front_page_blocks/revert"
 echo "/admin/structure/context/list/vizlab_gallery_page_blocks/revert"
 echo
 
-
-echo
+echo "* Manually set blog teaser display settings."
 echo "Make sure to disable conversion modules when all done"
 echo "drush dis -y field_convert image_legacy migrate content_dashboard AND ANY OTHERS"
 echo "Also - check the additional manual steps at https://gortonstudios.unfuddle.com/a#/projects/112467/notebooks/53120/pages/191892/latest"
 echo
 
-
-
 echo "Done with part 2."
 echo
+
+drush cron
+drush cc all
 
