@@ -110,6 +110,7 @@ echo "* You must now manually revert contexts."
 echo "/admin/structure/context/list/community/revert"
 echo "/admin/structure/context/list/front_page_blocks/revert"
 echo "/admin/structure/context/list/vizlab_gallery_page_blocks/revert"
+echo "/admin/structure/menu/item/75/delete"
 echo
 
 echo "* Manually set blog teaser display settings."
