@@ -13,7 +13,8 @@ echo
 
 echo "Migrate content fields from d6 cck to d6 fields."
 echo "You could also visit /admin/structure/content_migrate"
-drush content-migrate-fields -y
+#drush -y content-migrate-fields
+./update_part1b_fields.sh
 echo
 
 echo "All content fields have been updated."
