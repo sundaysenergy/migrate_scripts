@@ -24,12 +24,20 @@ echo "Enabling the NISE Net Helper and related modules."
 echo
 drush en -y nisenet_focused_search nisenet_search
 echo
-drush en -y nisenet_helper field_convert image_legacy image nisenet_dashboard nisenet_img_styles nisenet_profile2 nisenet_core nisenet_dashboard nisenet_events
+drush en -y nisenet_helper field_convert image_legacy image
+
+drush en -y nisenet_img_styles nisenet_core nisenet_dashboard nisenet_events nisenet_minor_content_types nisenet_profile2
 echo
 
 echo "Setting the default theme back to NISE Net."
 echo
 drush vset theme_default "nisenet"
+echo
+
+echo "Contexts"
+echo
+drush ctools-export-revert context community
+drush ctools-export-revert context front_page_blocks
 echo
 
 echo "Enabling admin and user inferface modules."
@@ -57,7 +65,7 @@ echo
 
 echo "Reverting all custom features."
 echo
-drush features-revert -y nisenet_search nisenet_img_styles nisenet_profile2 nisenet_core nisenet_dashboard nisenet_events
+drush features-revert -y nisenet_search nisenet_img_styles nisenet_profile2 nisenet_core nisenet_dashboard nisenet_events nisenet_minor_content_types
 echo
 
 echo "Clearing all drupal cache."
@@ -72,7 +80,7 @@ echo
 
 echo "Enabling Custom (nisenet_migrate) Migrate module for profile conversion."
 echo
-drush en -y migrate nisenet_migrate
+#drush en -y migrate nisenet_migrate
 echo
 
 echo "Clearing all drupal cache."

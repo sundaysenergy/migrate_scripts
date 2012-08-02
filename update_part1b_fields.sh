@@ -1,116 +1,116 @@
 #! /bin/bash
-
+echo
 drush content-migrate-field-structure field_program_length
 drush content-migrate-field-data field_program_length
-
+echo
 drush content-migrate-field-structure field_content_evaluated
 drush content-migrate-field-data field_content_evaluated
-
+echo
 drush content-migrate-field-structure field_content_peer_reviewed
 drush content-migrate-field-data field_content_peer_reviewed
-
+echo
 drush content-migrate-field-structure field_time_set_up_hours
 drush content-migrate-field-data field_time_set_up_hours
-
+echo
 drush content-migrate-field-structure field_general_description
 drush content-migrate-field-data field_general_description
-
+echo
 drush content-migrate-field-structure field_time_set_up_minutes
 drush content-migrate-field-data field_time_set_up_minutes
-
+echo
 drush content-migrate-field-structure field_big_ideas
 drush content-migrate-field-data field_big_ideas
-
+echo
 drush content-migrate-field-structure field_script_0
 drush content-migrate-field-data field_script_0
-
+echo
 drush content-migrate-field-structure field_contact_person
 drush content-migrate-field-data field_contact_person
-
+echo
 drush content-migrate-field-structure field_credits
 drush content-migrate-field-data field_credits
-
+echo
 drush content-migrate-field-structure field_terms
 drush content-migrate-field-data field_terms
-
+echo
 drush content-migrate-field-structure field_materials
 drush content-migrate-field-data field_materials
-
+echo
 drush content-migrate-field-structure field_program_accessibility
 drush content-migrate-field-data field_program_accessibility
-
+echo
 drush content-migrate-field-structure field_time_program_hours
 drush content-migrate-field-data field_time_program_hours
-
+echo
 drush content-migrate-field-structure field_background_information_pr
 drush content-migrate-field-data field_background_information_pr
-
+echo
 drush content-migrate-field-structure field_time_program_minutes
 drush content-migrate-field-data field_time_program_minutes
-
+echo
 drush content-migrate-field-structure field_program_accessibility_tip
 drush content-migrate-field-data field_program_accessibility_tip
-
+echo
 drush content-migrate-field-structure field_safety
 drush content-migrate-field-data field_safety
-
+echo
 drush content-migrate-field-structure field_procedure
 drush content-migrate-field-data field_procedure
-
+echo
 drush content-migrate-field-structure field_tips
 drush content-migrate-field-data field_tips
-
+echo
 drush content-migrate-field-structure field_common_questions
 drush content-migrate-field-data field_common_questions
-
+echo
 drush content-migrate-field-structure field_going_further
 drush content-migrate-field-data field_going_further
-
+echo
 drush content-migrate-field-structure field_time_clean_up_hours
 drush content-migrate-field-data field_time_clean_up_hours
-
+echo
 drush content-migrate-field-structure field_cleanup
 drush content-migrate-field-data field_cleanup
-
+echo
 drush content-migrate-field-structure field_content_vetted_scientists
 drush content-migrate-field-data field_content_vetted_scientists
-
+echo
 drush content-migrate-field-structure field_learning_goals_list
 drush content-migrate-field-data field_learning_goals_list
-
+echo
 drush content-migrate-field-structure field_page_title
 drush content-migrate-field-data field_page_title
-
+echo
 drush content-migrate-field-structure field_information_reference
 drush content-migrate-field-data field_information_reference
-
+echo
 drush content-migrate-field-structure field_resources
 drush content-migrate-field-data field_resources
-
+echo
 drush content-migrate-field-structure field_sectionprogram_adaptable
 drush content-migrate-field-data field_sectionprogram_adaptable
-
+echo
 drush content-migrate-field-structure field_reference_evaluation
 drush content-migrate-field-data field_reference_evaluation
-
+echo
 drush content-migrate-field-structure field_representational_image
 drush content-migrate-field-data field_representational_image
-
+echo
 drush content-migrate-field-structure field_permissions_nise
 drush content-migrate-field-data field_permissions_nise
-
+echo
 drush content-migrate-field-structure field_permissions_nise_attribute
 drush content-migrate-field-data field_permissions_nise_attribute
-
+echo
 drush content-migrate-field-structure field_authors_multiple
 drush content-migrate-field-data field_authors_multiple
-
+echo
 drush content-migrate-field-structure field_organization
 drush content-migrate-field-data field_organization
-
+echo
 drush content-migrate-field-structure field_author_other
 drush content-migrate-field-data field_author_other
-
+echo
 drush content-migrate-field-structure field_organization_other
 drush content-migrate-field-data field_organization_other
 
