@@ -3,10 +3,6 @@
 echo "Begin Part 1A - Update core database tables."
 echo
 
-echo "Create enabled.txt file with enabled modules."
-drush pml --no-core --type=module --status=enabled --pipe > enabled.txt
-echo
-
 echo "Put site into maintenance mode."
 drush vset --always-set site_offline 1
 echo
@@ -15,7 +11,11 @@ echo "Disabling Vertical Response and the PHP input format module."
 drush -y dis cookie_cache_bypass php vr
 echo
 
-echo "Disable all the enabled modules."
+echo "Creating enabled.txt file with enabled modules."
+drush pml --no-core --type=module --status=enabled --pipe > enabled.txt
+echo
+
+echo "Disabling all the enabled modules."
 xargs drush -y dis < enabled.txt
 echo
 

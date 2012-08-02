@@ -1,17 +1,14 @@
 #! /bin/bash
 
-echo "Rename sites/all/migrate to sites/all/modules."
-echo "sites/all/modules contains a few symbolic links to sites/all/not-modules."
-echo "The only modules in sites/all/modules are related to updating content."
+echo "Renaming sites/all/migrate to sites/all/modules."
+echo "sites/all/modules contains symbolic links to sites/all/not-modules."
+echo "The only modules in the current sites/all/modules are related to updating content fields."
+#sudo mv ../all/migrate ../all/modules
 mv ../all/migrate ../all/modules
 echo
 
 echo "Enable the required content modules located in sites/all/modules."
-drush en content_migrate computed_field content_taxonomy content_taxonomy_migrate date email field_group ctools image link references node_reference user_reference -y
-echo
-
-echo "Clear all drupal cache."
-drush cc all
+drush en -y content_migrate computed_field content_taxonomy content_taxonomy_migrate date email field_group ctools image link references node_reference user_reference
 echo
 
 echo "Migrate content fields from d6 cck to d6 fields."
@@ -28,6 +25,10 @@ echo
 
 echo "Move sites/all/not-modules back to sites/all/modules"
 mv ../all/not-modules ../all/modules
+echo
+
+echo "Clearing all drupal cache."
+drush cc all
 echo
 
 echo "[Part 1B Done]"
