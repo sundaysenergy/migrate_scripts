@@ -34,7 +34,7 @@ echo
 
 echo "Enabling admin and user inferface modules."
 echo
-drush en -y admin_menu admin_menu_toolbar admin_views backup_migrate block_class contextual views_ui views_bulk_operations context_ui logintoboggan mollom module_filter
+drush en -y admin_menu admin_menu_toolbar admin_views backup_migrate block_class contextual views_ui views_bulk_operations context_ui context_respect logintoboggan mollom module_filter
 echo
 
 echo "Enabling other contributed modules in three batches."
