@@ -14,17 +14,19 @@ echo
 echo "Migrate content fields from d6 cck to d6 fields."
 echo "You could also visit /admin/structure/content_migrate"
 #drush -y content-migrate-fields
-./update_part1b_fields.sh
+../all/migrate_scripts/update_part1b_fields.sh
 echo
 
 echo "All content fields have been updated."
 echo
 
 echo "Move sites/all/modules back to sites/all/migrate."
+# sudo ../all/modules ../all/migrate
 mv ../all/modules ../all/migrate
 echo
 
 echo "Move sites/all/not-modules back to sites/all/modules"
+# sudo mv ../all/not-modules ../all/modules
 mv ../all/not-modules ../all/modules
 echo
 
