@@ -38,7 +38,8 @@ foreach ( $result as $row) {
     drush_print("NID: $nid ");
     drush_print();
 
-    $query_image = "SELECT * FROM {image} WHERE nid = :nid AND image_size = ':size'"; // Changed query to always get the original image. Formerly, the query would return a row for each derivative of the image such as thumbnail.
+    // Changed query to always get the original image. Formerly, the query would return a row for each derivative of the image such as thumbnail.
+    $query_image = "SELECT * FROM {image} WHERE nid = :nid AND image_size = :size";
     $result_image = db_query($query_image, array(':nid' => $nid, ':size' => '_original'));
     $row_image = $result_image->fetchObject(); 
     $fid = $row_image->fid;
@@ -54,14 +55,14 @@ foreach ( $result as $row) {
     if ($img_path[0] != '/') {
       $img_path = '/' . $img_path;
     }
-    
+
     drush_print("Src: $img_path ");
     drush_print();
 
     $buffer = substr($tmp, 0, $start);
 
     $buffer .= "<img alt=\"$desc\" src=\"$img_path\" width=\"$width\" height=\"$height\" class=\"inline inline-$align\" />"; // Not a critical change, but now specifies width and height in the image's attribute tags. Also preserves the alignment of the image if the user specified an alignment through image assist.
-    
+
     $buffer .= substr($tmp, $end+1);
     //echo "Buffer: $buffer \n";
     $tmp = $buffer;

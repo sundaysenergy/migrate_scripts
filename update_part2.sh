@@ -25,7 +25,7 @@ echo
 drush en -y nisenet_focused_search nisenet_search
 echo
 drush en -y nisenet_helper field_convert image_legacy image
-
+echo
 drush en -y nisenet_img_styles nisenet_core nisenet_dashboard nisenet_events nisenet_minor_content_types nisenet_profile2
 echo
 
@@ -36,8 +36,7 @@ echo
 
 echo "Contexts"
 echo
-drush ctools-export-revert context community
-drush ctools-export-revert context front_page_blocks
+drush ctools-export-revert context community front_page_blocks vizlab_gallery_page_blocks
 echo
 
 echo "Enabling admin and user inferface modules."
@@ -48,7 +47,9 @@ echo
 echo "Enabling other contributed modules in three batches."
 echo
 drush en -y beautytips beautytips_ui ckeditor captcha googleanalytics flowplayer compact_forms context_menu_block content_dashboard emfield
+echo
 drush en -y filefield_paths media_vimeo file_force globalredirect lightbox2 pathauto print print_mail
+echo
 drush en -y tagadelic results_filter rules rules_admin site_map transliteration views_data_export webform xmlsitemap xmlsitemap_engines xmlsitemap_menu
 echo
 
@@ -80,7 +81,7 @@ echo
 
 echo "Enabling Custom (nisenet_migrate) Migrate module for profile conversion."
 echo
-#drush en -y migrate nisenet_migrate
+drush en -y migrate nisenet_migrate
 echo
 
 echo "Clearing all drupal cache."
@@ -110,20 +111,17 @@ LOGIN=`drush uli`
 echo "Login link:"
 echo "$LOGIN"
 echo
+drush cron
 
 echo "* * * The rest must be done manually. * * *"
 echo "* Convert image.module Image nodes at /admin/content/field_convert"
 echo "* Visit media update /admin/config/media/rebuild_types"
-echo "* You must now manually revert contexts."
-echo "/admin/structure/context/list/community/revert"
-echo "/admin/structure/context/list/front_page_blocks/revert"
-echo "/admin/structure/context/list/vizlab_gallery_page_blocks/revert"
 echo "/admin/structure/menu/item/75/delete"
 echo
 
 echo "* Manually set blog teaser display settings."
 echo "Make sure to disable conversion modules when all done"
-echo "drush dis -y field_convert image_legacy migrate content_dashboard AND ANY OTHERS"
+echo "drush dis -y content_taxonomy_migrate field_convert image_legacy migrate content_dashboard AND ANY OTHERS"
 echo "Also - check the additional manual steps at https://gortonstudios.unfuddle.com/a#/projects/112467/notebooks/53120/pages/191892/latest"
 echo
 
