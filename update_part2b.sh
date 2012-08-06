@@ -1,30 +1,13 @@
 #! /bin/bash
 
-# This MUST be run while the active directory is /sites/default
-
-echo "Drupal can now see all the contributed modules."
-echo
-
-echo "Enabling the nodequeue module first."
-echo
-drush en -y nodequeue
-echo
-
-echo "Running update.php for all non-core modules."
-echo
-drush updb -y
-echo
-
-#echo "Saving a db snapshot called site-db-part2a.sql."
-echo
-#drush sql-dump --skip-tables-key=common > site-db-part2a.sql
+echo "This MUST be run while the active directory is /sites/default"
 echo
 
 echo "Enabling the NISE Net Helper and related modules."
 echo
 drush en -y nisenet_focused_search nisenet_search
 echo
-drush en -y nisenet_helper field_convert image_legacy image
+nisenet_helper
 echo
 drush en -y nisenet_img_styles nisenet_core nisenet_dashboard nisenet_events nisenet_minor_content_types nisenet_profile2
 echo
@@ -107,10 +90,6 @@ echo
 drush vset --always-set site_offline 0
 echo
 
-LOGIN=`drush uli`
-echo "Login link:"
-echo "$LOGIN"
-echo
 drush cron
 
 echo "* * * The rest must be done manually. * * *"
@@ -131,3 +110,7 @@ echo
 drush cron
 drush cc all
 
+LOGIN=`drush uli`
+echo "Login link:"
+echo "$LOGIN"
+echo

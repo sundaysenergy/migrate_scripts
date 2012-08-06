@@ -33,7 +33,7 @@ echo "Use sites/default/settings-d7.php for d7 settings.php."
 cp settings-d7.php settings.php
 echo
 
-echo "Rename sites/all/modules dir to sites/all/not-modules."
+echo "Renaming sites/all/modules dir to sites/all/not-modules."
 # sudo mv ../all/modules/ ../all/not-modules
 mv ../all/modules/ ../all/not-modules
 echo
@@ -45,7 +45,7 @@ echo "This next command will conclude Part 1A."
 echo
 
 echo "Running update.php with verbose debug information printed."
-drush updb -dvy
+drush updb -vy
 echo
 
 echo "Core database tables have been migrated."

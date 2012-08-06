@@ -20,12 +20,12 @@ echo
 echo "All content fields have been updated."
 echo
 
-echo "Move sites/all/modules back to sites/all/migrate."
+echo "Moving sites/all/modules back to sites/all/migrate."
 # sudo ../all/modules ../all/migrate
 mv ../all/modules ../all/migrate
 echo
 
-echo "Move sites/all/not-modules back to sites/all/modules"
+echo "Moving sites/all/not-modules back to sites/all/modules"
 # sudo mv ../all/not-modules ../all/modules
 mv ../all/not-modules ../all/modules
 echo

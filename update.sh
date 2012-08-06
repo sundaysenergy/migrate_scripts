@@ -28,7 +28,7 @@ echo
 echo "* * * * Beginning Part 1B. * * * *"
 echo
 
-echo "Run update_part1b.sh"
+echo "Running update_part1b.sh"
 ../all/migrate_scripts/update_part1b.sh
 echo
 
@@ -36,8 +36,16 @@ echo "Saving a db snapshot called site-db-part1b.sql."
 drush sql-dump --skip-tables-key=common > site-db-part1b.sql
 echo
 
-echo "Run update_part2.sh"
-../all/migrate_scripts/update_part2.sh
+echo "* * * * Beginning Part 1B. * * * *"
 echo
 
-echo "[all done]"
+echo "Running update_part2a.sh"
+../all/migrate_scripts/update_part2a.sh
+echo
+
+echo "Saving a db snapshot called site-db-part2a.sql."
+echo
+drush sql-dump --skip-tables-key=common > site-db-part2a.sql
+echo
+
+echo "[ALL DONE!]"

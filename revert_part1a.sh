@@ -10,32 +10,35 @@ echo "Switch to /sites/default directory."
 cd ../../default
 echo
 
-echo "drop database"
+echo "Dropping the database."
 drush sql-drop -y
 echo
 
-echo "Move modules dir to not-modules dir"
+echo "Moving modules dir to not-modules dir"
 #sudo mv ../all/not-modules/ ../all/modules
 mv ../all/not-modules/ ../all/modules
 echo
 
-echo "Copy d6 settings to settings.php"
+echo "Copying d6 settings to settings.php"
 #sudo cp settings-d6.php settings.php
 cp settings-d6.php settings.php
 echo
 
-echo "Checkout master."
+echo "Checking out master."
 #sudo su gituser -c "git checkout master"
 git checkout master
 echo
 
-echo "Import d6 database."
+echo "Importing d6 database."
 drush sqlc < site-db-d6.sql
 echo
+
+echo "Clearing all Drupal cache."
+drush cc all
 
 LOGIN=`drush uli -l nisenet`
 echo "Login link:"
 echo "$LOGIN"
 echo
 
-echo "[done]"
+echo "[Done Reverting Part1 A]"
