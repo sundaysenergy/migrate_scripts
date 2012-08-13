@@ -8,7 +8,7 @@ mv ../all/migrate ../all/modules
 echo
 
 echo "Enable the required content modules located in sites/all/modules."
-drush en -y content_migrate computed_field content_taxonomy content_taxonomy_migrate date email field_group ctools image link references node_reference user_reference
+drush en -y content_migrate computed_field content_taxonomy content_taxonomy_migrate date email field_group ctools image image_legacy link references node_reference user_reference
 echo
 
 echo "Migrate content fields from d6 cck to d6 fields."
