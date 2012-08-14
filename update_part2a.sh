@@ -16,8 +16,5 @@ echo
 drush updb -y
 echo
 
-echo "Enabling image related modules for image node migration."
-drush en -y field_convert features nisenet_img_styles admin_menu
-
 echo "Done with part 2 A."
 echo
