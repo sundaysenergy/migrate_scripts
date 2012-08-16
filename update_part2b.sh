@@ -24,7 +24,7 @@ echo
 
 echo "Enabling admin and user inferface modules."
 echo
-drush en -y admin_menu admin_menu_toolbar admin_views backup_migrate block_class contextual views_ui views_bulk_operations context_ui context_respect logintoboggan mollom module_filter
+drush en -y admin_menu_toolbar admin_views backup_migrate block_class contextual views_ui views_bulk_operations context_ui context_respect logintoboggan mollom module_filter
 echo
 
 echo "Enabling other contributed modules in three batches."
@@ -93,7 +93,6 @@ echo
 drush cron
 
 echo "* * * The rest must be done manually. * * *"
-echo "* Convert image.module Image nodes at /admin/content/field_convert"
 echo "* Visit media update /admin/config/media/rebuild_types"
 echo "/admin/structure/menu/item/75/delete"
 echo
