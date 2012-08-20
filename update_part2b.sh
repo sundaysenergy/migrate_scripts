@@ -5,9 +5,9 @@ echo
 
 echo "Enabling the NISE Net Helper and related modules."
 echo
-drush en -y nisenet_focused_search nisenet_search
+drush en -y nisenet_focused_search nisenet_search nisenet_helper
 echo
-nisenet_helper
+
 echo
 drush en -y nisenet_img_styles nisenet_core nisenet_dashboard nisenet_events nisenet_minor_content_types nisenet_profile2
 echo
@@ -76,7 +76,7 @@ echo "Migrating profiles to profile2 entities."
 echo
 echo "This can take several (5+) minutes."
 echo
-#drush migrate-import NisenetContentProfile2Profile
+drush migrate-import NisenetContentProfile2Profile
 echo
 
 echo "Migrate img_assist content filters to inline <img> tags"
