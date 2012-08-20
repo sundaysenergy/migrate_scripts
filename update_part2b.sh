@@ -39,7 +39,9 @@ echo
 echo "Reverting all custom views to what is in nisenet_helper code."
 echo "This updates them for d7."
 echo
-drush vr catalog_featured catalog_most_viewed admin_content_comment admin_content_node admin_content front_catalog front_news mini_grants nodequeue_2 catalog_latest_grid admin_content_taxonomy admin_user_user
+drush vr admin_content_taxonomy admin_user_user admin_content_comment admin_content_node admin_content \
+blog_network_news_all catalog_featured catalog_most_viewed catalog_latest_grid events \
+front_catalog front_news mini_grants nodequeue_2 viz_lab_image_collection_page
 echo
 
 echo "Clearing all drupal cache before reverting features."
@@ -91,6 +93,7 @@ drush vset --always-set site_offline 0
 echo
 
 drush cron
+echo
 
 echo "* * * The rest must be done manually. * * *"
 echo "* Visit media update /admin/config/media/rebuild_types"
