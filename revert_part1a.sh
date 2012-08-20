@@ -36,7 +36,7 @@ echo
 echo "Clearing all Drupal cache."
 drush cc all
 
-LOGIN=`drush uli -l nisenet`
+LOGIN=`drush uli`
 echo "Login link:"
 echo "$LOGIN"
 echo

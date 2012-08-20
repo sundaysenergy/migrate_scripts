@@ -25,7 +25,7 @@ echo "/admin/content/field_convert"
 
 echo "Migrate content fields from d6 cck to d6 fields."
 echo "You could also visit /admin/structure/content_migrate"
-drush -y content-migrate-fields
+#drush -y content-migrate-fields
 ../all/migrate_scripts/update_part1b_fields.sh
 echo
 
