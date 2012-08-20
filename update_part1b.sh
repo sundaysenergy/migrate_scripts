@@ -8,14 +8,18 @@ mv ../all/migrate ../all/modules
 echo
 
 echo "Enable the required content modules located in sites/all/modules."
+echo
 drush en -y dblog content_migrate computed_field content_taxonomy content_taxonomy_migrate date email field_group ctools link references node_reference user_reference
 echo
 
 echo "Enabling image related modules for image node migration."
+echo
 drush en -y field_convert features nisenet_img_styles admin_menu image image_legacy
+echo
 
 echo "Run database update on the content and image modules."
 drush updb -y
+echo
 
 echo "* Convert image.module Image nodes at /admin/content/field_convert"
 echo
@@ -26,6 +30,7 @@ echo "/admin/content/field_convert"
 echo "Migrate content fields from d6 cck to d6 fields."
 echo "You could also visit /admin/structure/content_migrate"
 #drush -y content-migrate-fields
+echo
 ../all/migrate_scripts/update_part1b_fields.sh
 echo
 
@@ -43,6 +48,7 @@ mv ../all/not-modules ../all/modules
 echo
 
 echo "Clearing all drupal cache."
+echo
 drush cc all
 echo
 
