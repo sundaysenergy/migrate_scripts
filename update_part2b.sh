@@ -81,6 +81,11 @@ echo
 drush migrate-import NisenetContentProfile2Profile
 echo
 
+echo "Convert node ref to user ref on region nodes"
+echo
+drush nnm-field-contact
+echo
+
 echo "Migrate img_assist content filters to inline <img> tags"
 echo
 #php ../all/migrate_scripts/img_assist_convert.php
