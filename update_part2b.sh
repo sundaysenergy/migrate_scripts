@@ -100,7 +100,6 @@ echo "* Visit media update /admin/config/media/rebuild_types"
 echo "/admin/structure/menu/item/75/delete"
 echo
 
-echo "* Manually set blog teaser display settings."
 echo "Make sure to disable conversion modules when all done"
 echo "drush dis -y content_taxonomy_migrate field_convert image_legacy migrate content_dashboard AND ANY OTHERS"
 echo "Also - check the additional manual steps at https://gortonstudios.unfuddle.com/a#/projects/112467/notebooks/53120/pages/191892/latest"
