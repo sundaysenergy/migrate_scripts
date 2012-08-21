@@ -40,7 +40,7 @@ echo "Reverting all custom views to what is in nisenet_helper code."
 echo "This updates them for d7."
 echo
 drush vr admin_content_taxonomy admin_user_user admin_content_comment admin_content_node admin_content \
-blog_network_news_all catalog_featured catalog_most_viewed catalog_latest_grid events \
+blog_network_news_all catalog_featured catalog_most_viewed catalog_latest_grid events catalog_table_o_contents \
 front_catalog front_news mini_grants nodequeue_2 viz_lab_image_collection_page
 echo
 
