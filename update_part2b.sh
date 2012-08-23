@@ -3,6 +3,11 @@
 echo "This MUST be run while the active directory is /sites/default"
 echo
 
+echo "Enabling image related modules for image node migration."
+echo
+drush en -y field_convert nisenet_img_styles image image_legacy
+echo
+
 echo "Enabling the NISE Net Helper and related modules."
 echo
 drush en -y nisenet_focused_search nisenet_search nisenet_helper
@@ -80,16 +85,12 @@ echo "This can take several (5+) minutes."
 echo
 drush migrate-import NisenetContentProfile2Profile
 echo
+#Produces error: Migration failed with source plugin exception: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'nisenetconvert.migrate_map_nisenetcontentprofile2profile' doesn't exist
+
 
 echo "Convert node ref to user ref on region nodes"
 echo
 drush nnm-field-contact
-echo
-
-echo "Migrate img_assist content filters to inline <img> tags"
-echo
-#php ../all/migrate_scripts/img_assist_convert.php
-#drush php-script img_assist_convert --script-path=../all/migrate_scripts
 echo
 
 echo "Taking the site back online"
@@ -100,10 +101,12 @@ echo
 drush cron
 echo
 
-echo "* * * The rest must be done manually. * * *"
+echo "* * * The rest must be done manually. The next steps are: * * *"
+echo "* Run image update /admin/content/field_convert"
 echo "* Visit media update /admin/config/media/rebuild_types"
 echo "/admin/structure/menu/item/75/delete"
-echo
+echo "Migrate img_assist content filters to inline <img> tags: drush php-script ../all/migrate_scripts/img_assist_convert.php"
+echo "Revert the image feature: drush features-revert -y nisenet_image"
 
 echo "Make sure to disable conversion modules when all done"
 echo "drush dis -y content_taxonomy_migrate field_convert image_legacy migrate content_dashboard AND ANY OTHERS"

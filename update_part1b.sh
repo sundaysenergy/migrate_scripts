@@ -7,25 +7,14 @@ echo "The only modules in the current sites/all/modules are related to updating 
 mv ../all/migrate ../all/modules
 echo
 
-echo "Enable the required content modules located in sites/all/modules."
+echo "Enable the required content modules located in sites/all/modules + features & admin menu."
 echo
-drush en -y dblog content_migrate computed_field content_taxonomy content_taxonomy_migrate date email field_group ctools link references node_reference user_reference
-echo
-
-echo "Enabling image related modules for image node migration."
-echo
-drush en -y field_convert features nisenet_img_styles admin_menu image image_legacy
+drush en -y content_migrate computed_field content_taxonomy content_taxonomy_migrate date email field_group ctools link references node_reference user_reference features admin_menu
 echo
 
-echo "Run database update on the content and image modules."
+echo "Run database update on the content modules."
 drush updb -y
 echo
-
-echo "* Convert image.module Image nodes at /admin/content/field_convert"
-echo
-#drush uli
-echo
-echo "/admin/content/field_convert"
 
 echo "Migrate content fields from d6 cck to d6 fields."
 echo "You could also visit /admin/structure/content_migrate"

@@ -19,7 +19,7 @@ foreach ( $result as $row) {
 
   $start = strpos($tmp, "[img_assist");
   // Added parentheses here since operator precedence was incorrect.
-  while (($start = strpos($tmp, "[img_assist")) !== FALSE) {
+  if (($start = strpos($tmp, "[img_assist")) !== FALSE) {
     $end = strpos($tmp, "]", $start);
     $img = substr($tmp, $start+12, $end-$start-12);
     drush_print("Img: $img ");
@@ -45,40 +45,46 @@ foreach ( $result as $row) {
     $fid = $row_image->fid;
 
     drush_print("FID: $fid ");
-    drush_print();
+    drush_print('');
 
-    $query_file = "SELECT * FROM {files} WHERE fid = :fid";
+    $query_file = "SELECT * FROM {file_managed} WHERE fid = :fid";
     $result_file = db_query($query_file, array(':fid' => $fid));
-    $row_file = $result_file->fetchObject(); 
+    $row_file = $result_file->fetchObject();
     
-    $img_path = $row_file->filepath;
-    if ($img_path[0] != '/') {
-      $img_path = '/' . $img_path;
+    if ($img_path = $row_file->uri) { 
+      $scheme = file_uri_scheme($img_path);
+      $wrapper = file_stream_wrapper_get_instance_by_scheme($scheme);
+      $img_path = '/' . $wrapper->getDirectoryPath() . '/' . file_uri_target($img_path);
+  
+      $image_tag = "<img alt=\"$desc\" src=\"$img_path\" width=\"$width\" height=\"$height\" class=\"inline inline-$align\" />"; // Not a critical change, but now specifies width and height in the image's attribute tags. Also preserves the alignment of the image if the user specified an alignment through image assist.
+  
+      drush_print("Src: $image_tag ");
+      drush_print();
+    }
+    else { // this image doesn't exist anymore - remove the code -- example is node/1044
+      drush_print("missing image nid: $nid ");
+      drush_print();
+      $image_tag = '';
     }
 
-    drush_print("Src: $img_path ");
-    drush_print();
-
-    $buffer = substr($tmp, 0, $start);
-
-    $buffer .= "<img alt=\"$desc\" src=\"$img_path\" width=\"$width\" height=\"$height\" class=\"inline inline-$align\" />"; // Not a critical change, but now specifies width and height in the image's attribute tags. Also preserves the alignment of the image if the user specified an alignment through image assist.
-
-    $buffer .= substr($tmp, $end+1);
-    //echo "Buffer: $buffer \n";
-    $tmp = $buffer;
-  } // End : while ($start = strpos($tmp, "[img_assist"))   
-  $update_query = "UPDATE {field_data_body} SET body_value = ':value' WHERE entity_id = :eid";
-  $res = db_query($query, array(':value' => addslashes($tmp), ':eid' => $row->entity_id));
-  if (!$res) {
-    $message  = 'Query error : ' . mysql_error() . "\n";
-    $message .= 'Query : ' . $update_query;
-    drush_print($message);
-    exit();
-  }
-  //break; // Test
-}// End : while ($row = mysql_fetch_assoc($result))
+    $buffer = substr($tmp, 0, $start) . $image_tag . substr($tmp, $end+1);    
+    $res = db_update('field_data_body')
+        ->fields(array(
+          'body_value' => $buffer, 
+        ))
+        ->condition('entity_id', $row->entity_id)
+        ->execute();
+      
+    if (!$res) {
+      $message  = 'Query error : ' . mysql_error() . "\n";
+      $message .= 'Query : ' . $update_query;
+      drush_print($message);
+      exit();
+    }
+  }  
+}
 
 drush_print();
 drush_print("End ($count entities modified)");
-drush_print();
+drush_print("Run this multiple times for nodes like 5616 and 3462!");
 drush_print();
