@@ -107,7 +107,6 @@ echo
 echo "* * * The rest must be done manually. The next steps are: * * *"
 echo "* Run image update /admin/content/field_convert"
 echo "* Visit media update /admin/config/media/rebuild_types"
-echo "/admin/structure/menu/item/75/delete"
 echo "Migrate img_assist content filters to inline <img> tags: drush php-script ../all/migrate_scripts/img_assist_convert.php"
 echo "Revert the image feature: drush features-revert -y nisenet_image"
 echo "delete the existing dashboard alias at /admin/config/search/path/delete/27231?destination=admin/config/search/path/list/dashboard"
