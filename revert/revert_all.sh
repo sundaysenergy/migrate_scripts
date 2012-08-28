@@ -1,22 +1,17 @@
 #! /bin/bash
 
-# /mnt/web/development/var/www/html/nisenet/htdocs/migrate/sites/default
+# Place a copy of a database that has the fields updated in
+# /sites/default and call it site-db-part1.sql
 
 TODAY=`date "+%Y%m%d"`-`date +%H%M%S`
 echo "Today is $TODAY if you were wondering..."
 echo
 
-echo "Switch to /sites/default directory."
-cd ../../default
-echo
+#drush sql-dump --skip-tables-key=common > $TODAY.sql
 
-echo "Dropping the database."
+echo "drop database"
+echo
 drush sql-drop -y
-echo
-
-echo "Moving modules dir to not-modules dir"
-#sudo mv ../all/not-modules/ ../all/modules
-mv ../all/not-modules/ ../all/modules
 echo
 
 echo "Copying d6 settings to settings.php"
@@ -41,4 +36,4 @@ echo "Login link:"
 echo "$LOGIN"
 echo
 
-echo "[Done Reverting Part 1]"
+echo "[Done Revering All Parts.]"
