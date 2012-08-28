@@ -5,7 +5,7 @@ echo
 
 echo "Enabling image related modules for image node migration."
 echo
-drush en -y field_convert nisenet_img_styles image image_legacy
+drush en -y field_convert nisenet_img_styles image_legacy
 echo
 
 echo "Enabling the NISE Net Helper and related modules."
@@ -29,7 +29,9 @@ echo
 
 echo "Enabling admin and user inferface modules."
 echo
-drush en -y admin_menu_toolbar admin_views backup_migrate block_class contextual views_ui views_bulk_operations context_ui context_respect logintoboggan mollom module_filter
+drush en -y admin_menu_toolbar admin_views backup_migrate block_class contextual
+echo
+drush en -y views_ui views_bulk_operations context_ui context_respect logintoboggan mollom module_filter
 echo
 
 echo "Enabling other contributed modules in three batches."
