@@ -46,7 +46,8 @@ echo "This updates them for d7."
 echo
 drush vr admin_content_taxonomy admin_user_user admin_content_comment admin_content_node admin_content \
 blog_network_news_all catalog_featured catalog_most_viewed catalog_latest_grid events catalog_table_o_contents \
-front_catalog front_news mini_grants nodequeue_2 viz_lab_image_collection_page
+front_catalog front_news mini_grants nodequeue_2 viz_lab_image_collection_page admin_content_comment nanodays_products \
+Organizations blog_dc_nanowire_taxonomy blog_dc_nanowire_edit admin_user_user catalog_updater admin_content_node admin_content_taxonomy
 echo
 
 echo "Clearing all drupal cache before reverting features."
