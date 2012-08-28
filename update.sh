@@ -14,38 +14,85 @@ echo "Change into sites/default directory."
 cd ../../default
 echo
 
-echo "* * * * Beginning Part 1A. * * * *"
+echo
+echo "* * * * Beginning Part 1. * * * *"
 echo
 
-echo "Running update_part1a.sh"
-../all/migrate_scripts/update_part1a.sh
+echo "Running part1.sh"
+echo
+../all/migrate_scripts/part1.sh
 echo
 
 echo "Saving a db snapshot called site-db-part1a.sql."
-drush sql-dump --skip-tables-key=common > site-db-part1a.sql
+drush sql-dump --skip-tables-key=common > site-db-part1.sql
 echo
 
-echo "* * * * Beginning Part 1B. * * * *"
+echo
+echo "* * * * Beginning Part 2. * * * *"
 echo
 
-echo "Running update_part1b.sh"
-../all/migrate_scripts/update_part1b.sh
+echo "Running part2.sh"
+echo
+../all/migrate_scripts/part2.sh
 echo
 
-echo "Saving a db snapshot called site-db-part1b.sql."
-drush sql-dump --skip-tables-key=common > site-db-part1b.sql
+echo "Saving a db snapshot called site-db-part2.sql."
+drush sql-dump --skip-tables-key=common > site-db-part2.sql
 echo
 
-echo "* * * * Beginning Part 1B. * * * *"
+echo
+echo "* * * * Beginning Part 3. * * * *"
 echo
 
-echo "Running update_part2a.sh"
-../all/migrate_scripts/update_part2a.sh
+echo "Running part3.sh"
+echo
+../all/migrate_scripts/part3.sh
 echo
 
-echo "Saving a db snapshot called site-db-part2a.sql."
+echo "Saving a db snapshot called site-db-part3.sql."
 echo
-drush sql-dump --skip-tables-key=common > site-db-part2a.sql
+drush sql-dump --skip-tables-key=common > site-db-part3.sql
 echo
 
+echo
+echo "* * * * Beginning Part 4. * * * *"
+echo
+
+echo "Running part4.sh"
+echo
+../all/migrate_scripts/part4.sh
+echo
+
+echo
+echo "* * * * Beginning Part 5. * * * *"
+echo
+
+echo "Running part5.sh"
+echo
+../all/migrate_scripts/part5.sh
+echo
+
+echo "Saving a db snapshot called site-db-part5.sql."
+echo
+drush sql-dump --skip-tables-key=common > site-db-part5.sql
+echo
+
+
+echo
+echo "* * * * Beginning Part 6. * * * *"
+echo
+
+echo "Running part6.sh"
+echo
+../all/migrate_scripts/part3.sh
+echo
+
+echo "Saving a db snapshot called site-db-part6.sql."
+echo
+drush sql-dump --skip-tables-key=common > site-db-part6.sql
+echo
+
+echo
+echo "* * * * We are all done! * * * *"
+echo
 echo "[ALL DONE!]"

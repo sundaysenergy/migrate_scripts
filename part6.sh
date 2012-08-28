@@ -116,7 +116,7 @@ echo "drush dis -y content_taxonomy_migrate field_convert image_legacy migrate c
 echo "Also - check the additional manual steps at https://gortonstudios.unfuddle.com/a#/projects/112467/notebooks/53120/pages/191892/latest"
 echo
 
-echo "Done with part 2."
+echo "[Done with part 6.]"
 echo
 
 drush cron

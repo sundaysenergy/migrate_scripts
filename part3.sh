@@ -1,4 +1,9 @@
 #! /bin/bash
+echo "Migrate content fields from d6 cck to d6 fields."
+echo "You could also visit /admin/structure/content_migrate"
+#drush -y content-migrate-fields
+echo
+
 echo
 drush content-migrate-field-structure field_program_length
 drush content-migrate-field-data field_program_length
@@ -402,5 +407,10 @@ echo
 drush content-migrate-field-structure field_note
 drush content-migrate-field-data field_note
 echo
+
 echo "Done migrating fields."
+echo
+echo "All content fields have been updated."
+echo
+echo "[Part 3 Done]"
 echo

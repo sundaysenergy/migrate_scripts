@@ -16,5 +16,5 @@ echo
 drush updb -y
 echo
 
-echo "Done with part 2 A."
+echo "[Done with part 5.]"
 echo

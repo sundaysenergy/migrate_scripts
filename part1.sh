@@ -49,5 +49,6 @@ drush updb -vy
 echo
 
 echo "Core database tables have been migrated."
-echo "[Part 1A Done]"
+echo
+echo "[Part 1 Done]"
 echo
