@@ -6,10 +6,6 @@ TODAY=`date "+%Y%m%d"`-`date +%H%M%S`
 echo "Today is $TODAY if you were wondering..."
 echo
 
-echo "Switch to /sites/default directory."
-cd ../../default
-echo
-
 echo "drop database"
 drush sql-drop -y
 echo
