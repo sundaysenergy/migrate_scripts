@@ -110,11 +110,19 @@ echo "* Visit media update /admin/config/media/rebuild_types"
 echo "/admin/structure/menu/item/75/delete"
 echo "Migrate img_assist content filters to inline <img> tags: drush php-script ../all/migrate_scripts/img_assist_convert.php"
 echo "Revert the image feature: drush features-revert -y nisenet_image"
-
+echo "delete the existing dashboard alias at /admin/config/search/path/delete/27231?destination=admin/config/search/path/list/dashboard"
+echo "create a dashboard page and add menu link. URL alias = dashboard, Menu link in Navigation of 'My Dashboard'"
+echo "Update the block titles on the dashboard - remove the word 'dashboard' - admin/structure/block/manage/menu/menu-dashboard-homepage/configure"
+echo "Change title of 'Navigation' block: admin/structure/block/manage/system/navigation/configure -- set to [current-user:name]"
+echo "Edit the Footer block - change the title to "Sections" admin/structure/block/manage/menu_block/nisenet-sections-nav/configure"
+echo "Remove 'hide on these pages' from the 'support' block: admin/structure/block/manage/menu/menu-support/configure"
+echo "Double-check comments and make sure things like image, book, etc, have comments disabled admin/structure/types"
+echo "Add lisence for CKEditor - admin/config/content/ckeditor - or - replace with open source version?"
+echo "Delete blog_network_news_taxonomy view (now in code with different name)"
+echo "Verify menu settings on content types - most should be allowed in Main Menu - NOT the default of Navigation (e.g. go down to the 'menu' section on admin/structure/types/manage/page and check the right boxes)"
 echo "Make sure to disable conversion modules when all done"
 echo "drush dis -y content_taxonomy_migrate field_convert image_legacy migrate content_dashboard AND ANY OTHERS"
-echo "Also - check the additional manual steps at https://gortonstudios.unfuddle.com/a#/projects/112467/notebooks/53120/pages/191892/latest"
-echo
+
 
 echo "[Done with part 6.]"
 echo
