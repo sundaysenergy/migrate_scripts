@@ -114,7 +114,7 @@ echo "create a dashboard page and add menu link. URL alias = dashboard, Menu lin
 echo "Update the block titles on the dashboard - remove the word 'dashboard' - e.g. admin/structure/block/manage/menu/menu-dashboard-homepage/configure"
 echo "Change title of 'Navigation' block: admin/structure/block/manage/system/navigation/configure -- set to [current-user:name]"
 echo "Delete all non-code Contexts at admin/structure/context - anything with a Delete link is safe to delete"
-echo "Edit the Footer menu block - change the title to "Sections" admin/structure/block/manage/menu_block/nisenet-sections-nav/configure"
+echo "Edit the Footer menu block - change the title to \"Sections\" admin/structure/block/manage/menu_block/nisenet-sections-nav/configure"
 echo "Remove 'hide on these pages' from the 'Support' menu block: admin/structure/block/manage/menu/menu-support/configure and change the title to 'Support'"
 echo "Double-check comments and make sure things like image, book, etc, have comments disabled admin/structure/types"
 echo "Add lisence for CKEditor - admin/config/content/ckeditor - or - replace with open source version?"
