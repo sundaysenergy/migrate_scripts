@@ -1,6 +1,6 @@
 #! /bin/bash
 
-echo "Begin Part 1A - Update core database tables."
+echo "Begin Part 1 - Update core database tables."
 echo
 
 echo "Put site into maintenance mode."
@@ -33,6 +33,9 @@ echo "Use sites/default/settings-d7.php for d7 settings.php."
 cp settings-d7.php settings.php
 echo
 
+echo "Files directory must be 777."
+chmod 777 files
+
 echo "Renaming sites/all/modules dir to sites/all/not-modules."
 # sudo mv ../all/modules/ ../all/not-modules
 mv ../all/modules/ ../all/not-modules
@@ -41,7 +44,7 @@ echo
 echo "No contributed modules are accessible by drupal at this point."
 echo
 
-echo "This next command will conclude Part 1A."
+echo "This next command will conclude Part 1."
 echo
 
 echo "Running update.php with verbose debug information printed."
