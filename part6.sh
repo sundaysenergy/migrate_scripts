@@ -122,7 +122,7 @@ echo "Delete blog_network_news_taxonomy view (now in code with different name)"
 echo "Verify menu settings on content types - most should be allowed in Main Menu - NOT the default of Navigation (e.g. go down to the 'menu' section on admin/structure/types/manage/page and check the right boxes)"
 echo "Make sure to disable conversion modules when all done"
 echo "drush dis -y content_taxonomy_migrate field_convert image_legacy migrate content_dashboard AND ANY OTHERS"
-
+echo "Turn on performance settings at admin/config/development/performance"
 
 echo "[Done with part 6.]"
 echo
