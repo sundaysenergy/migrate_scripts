@@ -24,7 +24,7 @@ echo
 ../all/migrate_scripts/part1.sh
 echo
 
-echo "Saving a db snapshot called site-db-part1a.sql."
+echo "Saving a db snapshot called site-db-part1.sql."
 drush sql-dump --skip-tables-key=common > site-db-part1.sql
 echo
 
@@ -92,7 +92,7 @@ echo
 
 echo "Running part6.sh"
 echo
-../all/migrate_scripts/part3.sh
+../all/migrate_scripts/part6.sh
 echo
 
 echo "Saving a db snapshot called site-db-part6.sql."

@@ -24,7 +24,7 @@ echo
 
 echo "Contexts"
 echo
-drush ctools-export-revert context community front_page_blocks vizlab_gallery_page_blocks
+drush ctools-export-revert context community front_page_blocks
 echo
 
 echo "Enabling admin and user inferface modules."
@@ -113,7 +113,7 @@ echo "delete the existing dashboard alias at /admin/config/search/path/delete/27
 echo "create a dashboard page and add menu link. URL alias = dashboard, Menu link in Navigation of 'My Dashboard'"
 echo "Update the block titles on the dashboard - remove the word 'dashboard' - e.g. admin/structure/block/manage/menu/menu-dashboard-homepage/configure"
 echo "Change title of 'Navigation' block: admin/structure/block/manage/system/navigation/configure -- set to [current-user:name]"
-echo "Delete all non-code Contexts at admin/structure/context - anything with a Delete link is safe to delete"
+echo "Delete all non-code Contexts at admin/structure/context - everything with a Delete link is safe to delete (even vizlab_gallery_page_blocks)"
 echo "Edit the Footer menu block - change the title to \"Sections\" admin/structure/block/manage/menu_block/nisenet-sections-nav/configure"
 echo "Remove 'hide on these pages' from the 'Support' menu block: admin/structure/block/manage/menu/menu-support/configure and change the title to 'Support'"
 echo "Double-check comments and make sure things like image, book, etc, have comments disabled admin/structure/types"
