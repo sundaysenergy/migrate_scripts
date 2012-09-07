@@ -88,13 +88,18 @@ echo "This can take several (5+) minutes."
 echo
 drush migrate-import NisenetContentProfile2Profile
 echo
-#Produces error: Migration failed with source plugin exception: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'nisenetconvert.migrate_map_nisenetcontentprofile2profile' doesn't exist
 
 
 echo "Convert node ref to user ref on region nodes"
 echo
 drush nnm-field-contact
 echo
+
+echo "Fix problem with partially unsaved text list field data (?!?)"
+echo
+drush nnm-field-option-list
+echo
+
 
 echo "Taking the site back online"
 echo
@@ -108,9 +113,10 @@ echo "* * * The rest must be done manually. The next steps are: * * *"
 echo "* Run image update /admin/content/field_convert"
 echo "* Visit media update /admin/config/media/rebuild_types"
 echo "Migrate img_assist content filters to inline <img> tags: drush php-script ../all/migrate_scripts/img_assist_convert.php"
-echo "Revert the image feature: drush features-revert -y nisenet_images"
-echo "delete the existing dashboard alias at /admin/config/search/path/delete/27231?destination=admin/config/search/path/list/dashboard"
-echo "create a dashboard page and add menu link. URL alias = dashboard, Menu link in Navigation of 'My Dashboard'"
+echo "Turn on and revert the NISE Network Images feature at admin/structure/features"
+echo "Delete the existing dashboard alias at /admin/config/search/path/delete/27231?destination=admin/config/search/path/list/dashboard"
+echo "Delete the bad Catalog link at /admin/structure/menu/item/75/edit"
+echo "Create a dashboard page and add menu link. URL alias = dashboard, Menu link in Navigation of 'My Dashboard'"
 echo "Update the block titles on the dashboard - remove the word 'dashboard' - e.g. admin/structure/block/manage/menu/menu-dashboard-homepage/configure"
 echo "Change title of 'Navigation' block: admin/structure/block/manage/system/navigation/configure -- set to [current-user:name]"
 echo "Delete all non-code Contexts at admin/structure/context - everything with a Delete link is safe to delete (even vizlab_gallery_page_blocks)"
@@ -118,7 +124,7 @@ echo "Edit the Footer menu block - change the title to \"Sections\" admin/struct
 echo "Remove 'hide on these pages' from the 'Support' menu block: admin/structure/block/manage/menu/menu-support/configure and change the title to 'Support'"
 echo "Double-check comments and make sure things like image, book, etc, have comments disabled admin/structure/types"
 echo "Add lisence for CKEditor - admin/config/content/ckeditor - or - replace with open source version?"
-echo "Delete blog_network_news_taxonomy view (now in code with different name)"
+echo "Delete blog_network_news_taxonomy view (now in code with different name) admin/structure/views/view/blog_network_news_taxonomy/delete"
 echo "Verify menu settings on content types - most should be allowed in Main Menu - NOT the default of Navigation (e.g. go down to the 'menu' section on admin/structure/types/manage/page and check the right boxes)"
 echo "Make sure to disable conversion modules when all done"
 echo "drush dis -y content_taxonomy_migrate field_convert image_legacy migrate content_dashboard AND ANY OTHERS"
