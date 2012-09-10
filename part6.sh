@@ -97,7 +97,7 @@ echo
 
 echo "Fix problem with partially unsaved text list field data (?!?)"
 echo
-drush nnm-field-option-list
+#drush nnm-field-option-list
 echo
 
 
