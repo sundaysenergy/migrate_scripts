@@ -49,7 +49,7 @@ echo
 drush vr admin_content_taxonomy admin_user_user admin_content_comment admin_content_node admin_content \
 blog_network_news_all catalog_featured catalog_most_viewed catalog_latest_grid events catalog_table_o_contents \
 front_catalog front_news mini_grants nodequeue_2 viz_lab_image_collection_page admin_content_comment nanodays_products \
-Organizations blog_dc_nanowire_taxonomy blog_dc_nanowire_edit admin_user_user catalog_updater admin_content_node admin_content_taxonomy
+Organizations blog_dc_nanowire_taxonomy blog_dc_nanowire_edit admin_user_user catalog_updater admin_content_node admin_content_taxonomy manage_users
 echo
 
 echo "Clearing all drupal cache before reverting features."
@@ -121,7 +121,6 @@ echo "Delete blog_network_news_taxonomy view (now in code with different name) a
 echo "Edit the Footer menu block - change the title to \"Sections\" admin/structure/block/manage/menu_block/nisenet-sections-nav/configure"
 echo "Remove 'hide on these pages' from the 'Support' menu block: admin/structure/block/manage/menu/menu-support/configure and change the title to 'Support'"
 echo "Delete the existing dashboard alias at /admin/config/search/path/delete/27231?destination=admin/config/search/path/list/dashboard"
-echo "Create a dashboard page and add menu link. URL alias = dashboard, Menu link in Navigation of 'My Dashboard'"
 echo "Update the block titles on the dashboard - remove the word 'dashboard' - e.g. admin/structure/block/manage/menu/menu-dashboard-homepage/configure"
 echo "Add lisence for CKEditor - admin/config/content/ckeditor - or - replace with open source version?"
 echo "Verify menu settings on content types - most should be allowed in Main Menu - NOT the default of Navigation (e.g. go down to the 'menu' section on admin/structure/types/manage/page and check the right boxes)"
