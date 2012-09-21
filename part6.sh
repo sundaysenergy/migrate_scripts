@@ -122,6 +122,7 @@ echo "Edit the Footer menu block - change the title to \"Sections\" admin/struct
 echo "Remove 'hide on these pages' from the 'Support' menu block: admin/structure/block/manage/menu/menu-support/configure and change the title to 'Support'"
 echo "Delete the existing dashboard alias at /admin/config/search/path/delete/27231?destination=admin/config/search/path/list/dashboard"
 echo "Update the block titles on the dashboard - remove the word 'dashboard' - e.g. admin/structure/block/manage/menu/menu-dashboard-homepage/configure"
+echo "Set role visibility for Dashboard blocks - restrict them to appropriate roles - admin/structure/block/manage/menu/menu-dashboard-homepage/configure"
 echo "Add lisence for CKEditor - admin/config/content/ckeditor - or - replace with open source version?"
 echo "Verify menu settings on content types - most should be allowed in Main Menu - NOT the default of Navigation (e.g. go down to the 'menu' section on admin/structure/types/manage/page and check the right boxes)"
 echo "Double-check comments and make sure things like image, book, etc, have comments disabled admin/structure/types"
